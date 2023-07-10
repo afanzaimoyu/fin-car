@@ -18,6 +18,7 @@ import Menu from './Menu'
 
 export default {
   data() {
+    return{};
   },
   components: {
     Menu,

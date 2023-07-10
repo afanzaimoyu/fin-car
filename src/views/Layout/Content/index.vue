@@ -30,9 +30,11 @@ export default {
   created() {
     //获取当前时间---------------------------
     // let time =new Date()    // 1.自己封装 2.moment 3.dayjs
-    this.nowTime = dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
-  }
-}
+    setInterval(() => {
+      this.nowTime = dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss');
+    }, 1000);
+  },
+};
 </script>
 
 <style lang="less" scoped>

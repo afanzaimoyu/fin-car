@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/views/Layout"
-import ChePai from "@/views/ChePai";
+import ChePai from "@/views/ChePai/index.vue";
 import MoHu from "@/views/MoHu";
 import ShiJian from "@/views/ShiJian";
 
