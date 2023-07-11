@@ -23,7 +23,7 @@
     </el-menu-item>
     <el-menu-item index="/obscure">
       <i class="iconfont icon-chepaishibie"></i>
-      <span slot="title">模糊查找</span>
+      <span slot="title">移动端</span>
     </el-menu-item>
 
   </el-menu>

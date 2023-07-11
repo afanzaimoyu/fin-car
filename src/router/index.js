@@ -4,6 +4,7 @@ import Layout from "@/views/Layout"
 import ChePai from "@/views/ChePai/index.vue";
 import MoHu from "@/views/MoHu";
 import ShiJian from "@/views/ShiJian";
+import CarMap from "@/views/ChePai/CarMap";
 
 
 Vue.use(VueRouter);
@@ -20,7 +21,7 @@ const routes = [
                 meta: {
                     // activeMenu: '/',
                     title: "反向查询",
-                }
+                },
             },
             {
                 path: '/time',
@@ -37,7 +38,15 @@ const routes = [
                 meta: {
                     title: "模糊查询"
                 }
-            }
+            },
+            {
+                path: '/carmap',
+                component: CarMap,
+                name: "carmap",
+                meta: {
+                    title: "地图展示",
+                },
+            },
         ],
     },
 

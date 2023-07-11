@@ -113,7 +113,7 @@ export default {
           console.log('输入的车牌号是:', this.licensePlate);
           this.searchChePai(this.licensePlate)
         } else {
-          console.log('请输入正确的车牌号');
+          this.$message.error('查询失败，请稍后再试')
         }
       } else if (key === '撤回') {
         this.removeLastCharacter();
@@ -154,17 +154,26 @@ export default {
       // 车牌位数校验
       return this.licensePlate.length === this.characterCount;
     },
-
+// 查询车牌获取地图信息
     async searchChePai(licensePlate) {
-      let res = await this.$api.search_ChePai({search: licensePlate})
-      console.log('查询 的结果', res);
-      if (res.status === 200) {
-        this.$message({
-          message: '恭喜你，查询车牌成功',
-          type: 'success'
-        });
-      } else {
-        this.$message.error('车牌查询失败')
+      try {
+        // let res = await this.$api.search_ChePai({search: licensePlate})
+        let res = await this.$api.search_ChePai()
+        console.log('输入的车牌为', licensePlate);
+        console.log('查询 的结果', res);
+        if (res && res.status === 200 && res.data.length > 0) {
+          this.$message({
+            message: '恭喜你，查询车牌成功',
+            type: 'success'
+          });
+          const url = res.data[0].url;
+          await this.$router.push({path: '/carmap', query: {url}});
+        } else {
+          this.$message.error('车牌查询失败')
+        }
+      } catch (error) {
+        console.error('查询失败', error);
+        this.$message.error('查询失败，请稍后再试');
       }
     }
   },
